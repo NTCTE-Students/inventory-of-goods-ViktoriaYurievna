@@ -34,7 +34,7 @@ class SupplieEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
-            \Orchid\Screen\Actions\Button::make('Создать товар')
+            \Orchid\Screen\Actions\Button::make('Создание товара')
             ->icon('bs.save')
             ->method('saveSupply')
         ];
@@ -48,7 +48,11 @@ class SupplieEditScreen extends Screen
     public function layout(): iterable
     {
         return [
+            
             \Orchid\Support\Facades\Layout::rows([
+                \Orchid\Screen\Fields\Input::make('supply.name')
+                ->title('Название')
+                ->required(),
                 \Orchid\Screen\Fields\Input::make('supply.description')
                 ->title('Описание')
                 ->require()
@@ -60,7 +64,7 @@ class SupplieEditScreen extends Screen
                 ->title('Количество')
                 ->require()
                 ->type('number'),
-
+            
             ])
         ];
     }
